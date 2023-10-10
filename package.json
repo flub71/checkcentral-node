@@ -1,6 +1,6 @@
 {
   "name": "@flub71/checkcentral",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "A robust and intuitive Node.js client for interacting with the CheckCentral API. Seamlessly fetch overviews, checks, activities, dashboards, and more with minimal setup.",
   "main": "dist/index.js",
   "scripts": {
