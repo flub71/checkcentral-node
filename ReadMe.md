@@ -1,29 +1,20 @@
 # CheckCentral-Node
 
-A Node.js client for the CheckCentral API.
+A robust and intuitive Node.js client for interacting with the CheckCentral API. Seamlessly fetch overviews, checks, activities, dashboards, and more with minimal setup.
 
 ## Installation
 
-1. Clone this repository:
-   ```bash
-   git clone https://github.com/flub71/checkcentral-node.git
-   ```
+Install the package via npm:
 
-2. Navigate to the project directory:
-   ```bash
-   cd checkcentral-node
-   ```
-
-3. Install the required dependencies:
-   ```bash
-   npm install
-   ```
+```bash
+npm install checkcentral-node
+```
 
 ## Configuration
 
 Before using the CheckCentral API client, you need to configure your environment:
 
-1. Create a `.env` file in the root directory of the project.
+1. Create a `.env` file in the root directory of your project.
 2. Add the following line to the `.env` file:
    ```env
    CHECK_CENTRAL_READONLY_API_KEY=YOUR_API_KEY_HERE
@@ -32,12 +23,10 @@ Before using the CheckCentral API client, you need to configure your environment
 
 ## Usage
 
-You can use the `CheckCentralAPI` class to interact with the CheckCentral API. The class provides methods to fetch overviews, checks, activities, check groups, dashboards, issues, permissions, reports, users, and user groups.
-
-Example:
+After installation, you can use the `CheckCentralAPI` class in your project:
 
 ```typescript
-import CheckCentralAPI from './path_to_your_file';
+import CheckCentralAPI from 'checkcentral-node';
 
 async function fetchAllChecks() {
     const checks = await CheckCentralAPI.getAllChecks();
@@ -63,13 +52,10 @@ Here are the available methods in the `CheckCentralAPI` class:
 - `getUsers(params: UsersParams)`: Fetches users based on the provided parameters.
 - `getUserGroups(params: UserGroupsParams)`: Fetches user groups based on the provided parameters.
 
-
 ## Contributing
 
-If you'd like to contribute to this project, please fork the repository and submit a pull request.
+If you'd like to contribute or have any issues/suggestions, please submit an issue or pull request on the GitHub repository.
 
 ## License
 
 This project is licensed under the MIT License.
-
-```
