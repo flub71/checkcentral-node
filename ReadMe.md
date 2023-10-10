@@ -7,7 +7,7 @@ A robust and intuitive Node.js client for interacting with the CheckCentral API.
 Install the package via npm:
 
 ```bash
-npm install checkcentral-node
+npm i @flub71/checkcentral
 ```
 
 ## Configuration
@@ -23,13 +23,15 @@ Before using the CheckCentral API client, you need to configure your environment
 
 ## Usage
 
-After installation, you can use the `CheckCentralAPI` class in your project:
+After installation, you can use the `CheckCentralAPI` class in your project. First, you need to instantiate the class with your API key:
 
 ```typescript
-import CheckCentralAPI from 'checkcentral-node';
+import CheckCentralAPI from '@flub71/checkcentral';
+
+const api = new CheckCentralAPI(process.env.CHECK_CENTRAL_READONLY_API_KEY);
 
 async function fetchAllChecks() {
-    const checks = await CheckCentralAPI.getAllChecks();
+    const checks = await api.getAllChecks();
     console.log(checks);
 }
 

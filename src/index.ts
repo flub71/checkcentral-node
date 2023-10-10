@@ -1,11 +1,6 @@
 import axios from "axios";
-import path from "path";
-import { config } from "dotenv";
-
-config({ path: path.join(__dirname, ".env") });
 
 const BASE_URL = "https://api.checkcentral.cc";
-const API_TOKEN: string = process.env.CHECK_CENTRAL_READONLY_API_KEY as string;
 
 interface AllChecksParams {
     checkId?: number;
@@ -63,10 +58,15 @@ interface UserGroupsParams {
 }
 
 class CheckCentralAPI {
+    private readonly apiToken: string;
+
+    constructor(apiKey: string) {
+        this.apiToken = apiKey;
+    }
     async getOverview(): Promise<any> {
         try {
             const response = await axios.get(
-                `${BASE_URL}/getOverview/?apiToken=${API_TOKEN}`
+                `${BASE_URL}/getOverview/?apiToken=${this.apiToken}`
             );
             return response.data;
         } catch (error) {
@@ -79,7 +79,7 @@ class CheckCentralAPI {
         try {
             const queryParams = new URLSearchParams(params as any);
             const response = await axios.get(
-                `${BASE_URL}/getChecks/?apiToken=${API_TOKEN}&${queryParams.toString()}`
+                `${BASE_URL}/getChecks/?apiToken=${this.apiToken}&${queryParams.toString()}`
             );
             return response.data;
         } catch (error) {
@@ -92,7 +92,7 @@ class CheckCentralAPI {
         try {
             const queryParams = new URLSearchParams(params as any);
             const response = await axios.get(
-                `${BASE_URL}/getActivities/?apiToken=${API_TOKEN}&${queryParams.toString()}`
+                `${BASE_URL}/getActivities/?apiToken=${this.apiToken}&${queryParams.toString()}`
             );
             return response.data;
         } catch (error) {
@@ -105,7 +105,7 @@ class CheckCentralAPI {
         try {
             const queryParams = new URLSearchParams(params as any);
             const response = await axios.get(
-                `${BASE_URL}/getCheckGroups/?apiToken=${API_TOKEN}&${queryParams.toString()}`
+                `${BASE_URL}/getCheckGroups/?apiToken=${this.apiToken}&${queryParams.toString()}`
             );
             return response.data;
         } catch (error) {
@@ -118,7 +118,7 @@ class CheckCentralAPI {
         try {
             const queryParams = new URLSearchParams(params as any);
             const response = await axios.get(
-                `${BASE_URL}/getDashboards/?apiToken=${API_TOKEN}&${queryParams.toString()}`
+                `${BASE_URL}/getDashboards/?apiToken=${this.apiToken}&${queryParams.toString()}`
             );
             return response.data;
         } catch (error) {
@@ -130,7 +130,7 @@ class CheckCentralAPI {
     async getIssues(): Promise<any> {
         try {
             const response = await axios.get(
-                `${BASE_URL}/getIssues/?apiToken=${API_TOKEN}`
+                `${BASE_URL}/getIssues/?apiToken=${this.apiToken}`
             );
             return response.data;
         } catch (error) {
@@ -143,7 +143,7 @@ class CheckCentralAPI {
         try {
             const queryParams = new URLSearchParams(params as any);
             const response = await axios.get(
-                `${BASE_URL}/getPermissions/?apiToken=${API_TOKEN}&${queryParams.toString()}`
+                `${BASE_URL}/getPermissions/?apiToken=${this.apiToken}&${queryParams.toString()}`
             );
             return response.data;
         } catch (error) {
@@ -156,7 +156,7 @@ class CheckCentralAPI {
         try {
             const queryParams = new URLSearchParams(params as any);
             const response = await axios.get(
-                `${BASE_URL}/generateReport/?apiToken=${API_TOKEN}&${queryParams.toString()}`
+                `${BASE_URL}/generateReport/?apiToken=${this.apiToken}&${queryParams.toString()}`
             );
             return response.data;
         } catch (error) {
@@ -169,7 +169,7 @@ class CheckCentralAPI {
         try {
             const queryParams = new URLSearchParams(params as any);
             const response = await axios.get(
-                `${BASE_URL}/getReports/?apiToken=${API_TOKEN}&${queryParams.toString()}`
+                `${BASE_URL}/getReports/?apiToken=${this.apiToken}&${queryParams.toString()}`
             );
             return response.data;
         } catch (error) {
@@ -182,7 +182,7 @@ class CheckCentralAPI {
         try {
             const queryParams = new URLSearchParams(params as any);
             const response = await axios.get(
-                `${BASE_URL}/getUsers/?apiToken=${API_TOKEN}&${queryParams.toString()}`
+                `${BASE_URL}/getUsers/?apiToken=${this.apiToken}&${queryParams.toString()}`
             );
             return response.data;
         } catch (error) {
@@ -195,7 +195,7 @@ class CheckCentralAPI {
         try {
             const queryParams = new URLSearchParams(params as any);
             const response = await axios.get(
-                `${BASE_URL}/getUserGroups/?apiToken=${API_TOKEN}&${queryParams.toString()}`
+                `${BASE_URL}/getUserGroups/?apiToken=${this.apiToken}&${queryParams.toString()}`
             );
             return response.data;
         } catch (error) {
@@ -205,4 +205,4 @@ class CheckCentralAPI {
     }
 }
 
-export default new CheckCentralAPI();
+export default CheckCentralAPI;

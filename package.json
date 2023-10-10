@@ -1,8 +1,8 @@
 {
   "name": "@flub71/checkcentral",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "A robust and intuitive Node.js client for interacting with the CheckCentral API. Seamlessly fetch overviews, checks, activities, dashboards, and more with minimal setup.",
-  "main": "index.js",
+  "main": "dist/index.js",
   "scripts": {
     "start": "node dist/app.js",
     "build": "tsc"
@@ -26,5 +26,6 @@
   "bugs": {
     "url": "https://github.com/flub71/checkcentral-node/issues"
   },
-  "homepage": "https://github.com/flub71/checkcentral-node#readme"
+  "homepage": "https://github.com/flub71/checkcentral-node#readme",
+  "types": "./dist/index.d.ts"
 }
