@@ -2,7 +2,7 @@ import axios from "axios";
 import path from "path";
 import { config } from "dotenv";
 
-config({ path: path.join(__dirname, "../../.env") });
+config({ path: path.join(__dirname, ".env") });
 
 const BASE_URL = "https://api.checkcentral.cc";
 const API_TOKEN: string = process.env.CHECK_CENTRAL_READONLY_API_KEY as string;
